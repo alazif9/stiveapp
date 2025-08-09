@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "431645170436",
+    "project_id": "meajudastive-u5634n",
+    "storage_bucket": "meajudastive-u5634n.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431645170436:android:40be37741b34cf7cbd4e51",
+        "android_client_info": {
+          "package_name": "com.mycompany.meajudastive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431645170436-e19mt9t6fc1q8qajf4172mguvemt7fss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSFIMe3YqnQpOtT_eBpG_GXi6H7u49zlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431645170436-e19mt9t6fc1q8qajf4172mguvemt7fss.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "431645170436-t14i861th187c243enpgcqp5pj7en5gn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.meajudastive"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
