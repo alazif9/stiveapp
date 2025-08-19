@@ -81,14 +81,22 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
+                                        16.0,
+                                        0.0,
+                                        16.0,
+                                        0.0,
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 6.0, 16.0, 6.0),
+                                                  0.0,
+                                                  6.0,
+                                                  16.0,
+                                                  6.0,
+                                                ),
                                             child: Container(
                                               width: 44.59,
                                               height: 44.59,
@@ -114,7 +122,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   context.pushNamed(
-                                                      PerfilWidget.routeName);
+                                                    PerfilWidget.routeName,
+                                                  );
                                                 },
                                                 child: Icon(
                                                   Icons.person_rounded,
@@ -127,41 +136,46 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           Expanded(
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
-                                                'Bem vindo,  ${valueOrDefault<String>(
-                                                  currentUserDisplayName,
-                                                  'Stivie',
-                                                )}!',
+                                                'Bem vindo,  ${valueOrDefault<String>(currentUserDisplayName, 'Stivie')}!',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .override(
-                                                  font: GoogleFonts.ubuntu(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .headlineMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineMedium
-                                                          .fontStyle,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Colors.black,
-                                                      offset: Offset(2.0, 2.0),
-                                                      blurRadius: 2.0,
-                                                    )
-                                                  ],
-                                                ),
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).headlineMedium.override(
+                                                      font: GoogleFonts.ubuntu(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                  context,
+                                                                )
+                                                                .headlineMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).primaryBackground,
+                                                      fontSize: 24.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                context,
+                                                              )
+                                                              .headlineMedium
+                                                              .fontStyle,
+                                                      shadows: [
+                                                        Shadow(
+                                                          color: Colors.black,
+                                                          offset: Offset(
+                                                            2.0,
+                                                            2.0,
+                                                          ),
+                                                          blurRadius: 2.0,
+                                                        ),
+                                                      ],
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -171,8 +185,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                     StickyHeader(
                                       overlapHeaders: false,
                                       header: Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                        alignment: AlignmentDirectional(
+                                          -1.0,
+                                          0.0,
+                                        ),
                                         child: Text(
                                           'a',
                                           style: FlutterFlowTheme.of(context)
@@ -181,26 +197,22 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                 font: GoogleFonts.inter(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
+                                                        context,
+                                                      ).bodyMedium.fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
+                                                        context,
+                                                      ).bodyMedium.fontStyle,
                                                 ),
                                                 color: Color(0x0E3D1313),
                                                 fontSize: 1.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
+                                                fontWeight: FlutterFlowTheme.of(
+                                                  context,
+                                                ).bodyMedium.fontWeight,
+                                                fontStyle: FlutterFlowTheme.of(
+                                                  context,
+                                                ).bodyMedium.fontStyle,
                                               ),
                                         ),
                                       ),
@@ -210,43 +222,55 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                              0.0,
+                                              0.0,
+                                            ),
                                             child: Text(
                                               'Fale com o Stive!',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                font: GoogleFonts.ubuntu(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleLarge
-                                                          .fontStyle,
-                                                ),
-                                                color: Color(0xFFFEFEFE),
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .fontStyle,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: Colors.black,
-                                                    offset: Offset(2.0, 2.0),
-                                                    blurRadius: 2.0,
-                                                  )
-                                                ],
-                                              ),
+                                                  FlutterFlowTheme.of(
+                                                    context,
+                                                  ).titleLarge.override(
+                                                    font: GoogleFonts.ubuntu(
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                context,
+                                                              )
+                                                              .titleLarge
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Color(0xFFFEFEFE),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).titleLarge.fontStyle,
+                                                    shadows: [
+                                                      Shadow(
+                                                        color: Colors.black,
+                                                        offset: Offset(
+                                                          2.0,
+                                                          2.0,
+                                                        ),
+                                                        blurRadius: 2.0,
+                                                      ),
+                                                    ],
+                                                  ),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 4.0),
+                                                  0.0,
+                                                  0.0,
+                                                  0.0,
+                                                  4.0,
+                                                ),
                                             child: Container(
                                               width: double.infinity,
                                               height: 270.0,
@@ -256,7 +280,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                          0.0,
+                                                          0.0,
+                                                        ),
                                                     child: Flex(
                                                       direction: Axis.vertical,
                                                       mainAxisSize:
@@ -264,12 +290,12 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      100.0,
-                                                                      12.0,
-                                                                      100.0,
-                                                                      12.0),
+                                                              EdgeInsetsDirectional.fromSTEB(
+                                                                100.0,
+                                                                12.0,
+                                                                100.0,
+                                                                12.0,
+                                                              ),
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -285,25 +311,44 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                   await OpenAINovoGroup
                                                                       .criarConversaCall
                                                                       .call();
-
                                                               if ((_model
+                                                                          .apiResultv4t
+                                                                          ?.statusCode ??
+                                                                      200) ==
+                                                                  402) {
+                                                                ScaffoldMessenger.of(
+                                                                  context,
+                                                                ).showSnackBar(
+                                                                  SnackBar(
+                                                                    content: Text(
+                                                                      'Limite mensal de uso atingido',
+                                                                      style: TextStyle(
+                                                                        color: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).primaryText,
+                                                                      ),
+                                                                    ),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).error,
+                                                                  ),
+                                                                );
+                                                              } else if ((_model
                                                                       .apiResultv4t
                                                                       ?.succeeded ??
                                                                   true)) {
-                                                                context
-                                                                    .pushNamed(
+                                                                context.pushNamed(
                                                                   ChatbotstiveaiWidget
                                                                       .routeName,
-                                                                  queryParameters:
-                                                                      {
-                                                                    'threadId':
-                                                                        serializeParam(
+                                                                  queryParameters: {
+                                                                    'threadId': serializeParam(
                                                                       OpenAINovoGroup
                                                                           .criarConversaCall
                                                                           .id(
-                                                                        (_model.apiResultv4t?.jsonBody ??
-                                                                            ''),
-                                                                      ),
+                                                                            (_model.apiResultv4t?.jsonBody ??
+                                                                                ''),
+                                                                          ),
                                                                       ParamType
                                                                           .String,
                                                                     ),
@@ -311,62 +356,67 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                 );
                                                               } else {
                                                                 ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
+                                                                  context,
+                                                                ).showSnackBar(
                                                                   SnackBar(
-                                                                    content:
-                                                                        Text(
+                                                                    content: Text(
                                                                       'Falha ao Conectar com o Servidor!',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
+                                                                      style: TextStyle(
+                                                                        color: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).primaryText,
                                                                       ),
                                                                     ),
                                                                     duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
+                                                                      milliseconds:
+                                                                          4000,
+                                                                    ),
                                                                     backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .error,
+                                                                        FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).error,
                                                                   ),
                                                                 );
                                                               }
 
                                                               safeSetState(
-                                                                  () {});
+                                                                () {},
+                                                              );
                                                             },
                                                             child: Container(
                                                               width: 230.4,
                                                               height: 230.4,
-                                                              decoration:
-                                                                  BoxDecoration(
+                                                              decoration: BoxDecoration(
                                                                 color: Color(
-                                                                    0x9F0F4D78),
+                                                                  0x9F0F4D78,
+                                                                ),
                                                                 borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                                border:
-                                                                    Border.all(
+                                                                    BorderRadius.circular(
+                                                                      12.0,
+                                                                    ),
+                                                                border: Border.all(
                                                                   color: Color(
-                                                                      0xFF868689),
+                                                                    0xFF868689,
+                                                                  ),
                                                                   width: 2.0,
                                                                 ),
                                                               ),
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                  ),
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                      0.0,
+                                                                      0.0,
+                                                                    ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              8.0),
+                                                                      EdgeInsets.all(
+                                                                        8.0,
+                                                                      ),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -379,17 +429,21 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                             .center,
                                                                     children: [
                                                                       Expanded(
-                                                                        child:
-                                                                            Stack(
+                                                                        child: Stack(
                                                                           children: [
                                                                             ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(3.0),
+                                                                              borderRadius: BorderRadius.circular(
+                                                                                3.0,
+                                                                              ),
                                                                               child: Image.asset(
                                                                                 'assets/images/logo2.png',
                                                                                 width: double.infinity,
                                                                                 height: double.infinity,
                                                                                 fit: BoxFit.contain,
-                                                                                alignment: Alignment(0.0, 0.0),
+                                                                                alignment: Alignment(
+                                                                                  0.0,
+                                                                                  0.0,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ],
@@ -397,39 +451,43 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                        ),
+                                                                        child: Text(
                                                                           'Acessar StiveAI',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .titleLarge
-                                                                              .override(
-                                                                            font:
-                                                                                GoogleFonts.ubuntu(
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                                                                            shadows: [
-                                                                              Shadow(
-                                                                                color: Colors.black,
-                                                                                offset: Offset(2.0, 2.0),
-                                                                                blurRadius: 2.0,
-                                                                              )
-                                                                            ],
-                                                                          ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).titleLarge.override(
+                                                                                font: GoogleFonts.ubuntu(
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).titleLarge.fontStyle,
+                                                                                ),
+                                                                                color: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).primaryBackground,
+                                                                                fontSize: 20.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).titleLarge.fontStyle,
+                                                                                shadows: [
+                                                                                  Shadow(
+                                                                                    color: Colors.black,
+                                                                                    offset: Offset(
+                                                                                      2.0,
+                                                                                      2.0,
+                                                                                    ),
+                                                                                    blurRadius: 2.0,
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -457,51 +515,65 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 16.0, 0.0,
-                                                          12.0),
+                                                  padding:
+                                                      EdgeInsetsDirectional.fromSTEB(
+                                                        16.0,
+                                                        16.0,
+                                                        0.0,
+                                                        12.0,
+                                                      ),
                                                   child: Text(
                                                     'Histórico recente de conversas:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium
-                                                        .override(
-                                                      font: GoogleFonts.ubuntu(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      fontSize: 20.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .fontStyle,
-                                                      shadows: [
-                                                        Shadow(
-                                                          color: Colors.black,
-                                                          offset:
-                                                              Offset(2.0, 2.0),
-                                                          blurRadius: 2.0,
-                                                        )
-                                                      ],
-                                                    ),
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).labelMedium.override(
+                                                          font: GoogleFonts.ubuntu(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                      context,
+                                                                    )
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          color:
+                                                              FlutterFlowTheme.of(
+                                                                context,
+                                                              ).primaryBackground,
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                    context,
+                                                                  )
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                          shadows: [
+                                                            Shadow(
+                                                              color:
+                                                                  Colors.black,
+                                                              offset: Offset(
+                                                                2.0,
+                                                                2.0,
+                                                              ),
+                                                              blurRadius: 2.0,
+                                                            ),
+                                                          ],
+                                                        ),
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 44.0),
+                                                  padding:
+                                                      EdgeInsetsDirectional.fromSTEB(
+                                                        0.0,
+                                                        0.0,
+                                                        0.0,
+                                                        44.0,
+                                                      ),
                                                   child: ListView(
                                                     padding: EdgeInsets.zero,
                                                     primary: false,
@@ -511,43 +583,45 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
+                                                            EdgeInsetsDirectional.fromSTEB(
+                                                              16.0,
+                                                              0.0,
+                                                              16.0,
+                                                              0.0,
+                                                            ),
                                                         child: Container(
                                                           width: 220.0,
                                                           height: 79.63,
-                                                          decoration:
-                                                              BoxDecoration(
+                                                          decoration: BoxDecoration(
                                                             color: Colors.white,
                                                             boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
-                                                                    0x33000000),
+                                                                  0x33000000,
+                                                                ),
                                                                 offset: Offset(
                                                                   0.0,
                                                                   2.0,
                                                                 ),
-                                                              )
+                                                              ),
                                                             ],
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
+                                                                BorderRadius.circular(
+                                                                  12.0,
+                                                                ),
                                                             border: Border.all(
                                                               color: Color(
-                                                                  0xFFE5E7EB),
+                                                                0xFFE5E7EB,
+                                                              ),
                                                               width: 1.0,
                                                             ),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsets.all(
-                                                                    8.0),
+                                                                  8.0,
+                                                                ),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -557,37 +631,37 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  padding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                      ),
                                                                   child: Text(
                                                                     'DATA/HORA',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.outfit(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                                                                          ),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).warning,
-                                                                          fontSize:
-                                                                              22.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .titleLarge
-                                                                              .fontStyle,
-                                                                        ),
+                                                                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                      font: GoogleFonts.outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).titleLarge.fontStyle,
+                                                                      ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).warning,
+                                                                      fontSize:
+                                                                          22.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).titleLarge.fontStyle,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Row(
@@ -599,37 +673,47 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          RichText(
-                                                                        textScaler:
-                                                                            MediaQuery.of(context).textScaler,
-                                                                        text:
-                                                                            TextSpan(
+                                                                      padding:
+                                                                          EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                          ),
+                                                                      child: RichText(
+                                                                        textScaler: MediaQuery.of(
+                                                                          context,
+                                                                        ).textScaler,
+                                                                        text: TextSpan(
                                                                           children: [
                                                                             TextSpan(
                                                                               text: 'ASSUNTO',
                                                                               style: TextStyle(
-                                                                                color: Color(0xFF6F61EF),
+                                                                                color: Color(
+                                                                                  0xFF6F61EF,
+                                                                                ),
                                                                               ),
-                                                                            )
+                                                                            ),
                                                                           ],
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).labelMedium.override(
                                                                                 font: GoogleFonts.outfit(
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).labelMedium.fontStyle,
                                                                                 ),
-                                                                                color: FlutterFlowTheme.of(context).warning,
+                                                                                color: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).warning,
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
-                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).labelMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -643,43 +727,45 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
+                                                            EdgeInsetsDirectional.fromSTEB(
+                                                              16.0,
+                                                              0.0,
+                                                              16.0,
+                                                              0.0,
+                                                            ),
                                                         child: Container(
                                                           width: 220.0,
                                                           height: 78.87,
-                                                          decoration:
-                                                              BoxDecoration(
+                                                          decoration: BoxDecoration(
                                                             color: Colors.white,
                                                             boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
-                                                                    0x33000000),
+                                                                  0x33000000,
+                                                                ),
                                                                 offset: Offset(
                                                                   0.0,
                                                                   2.0,
                                                                 ),
-                                                              )
+                                                              ),
                                                             ],
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
+                                                                BorderRadius.circular(
+                                                                  12.0,
+                                                                ),
                                                             border: Border.all(
                                                               color: Color(
-                                                                  0xFFE5E7EB),
+                                                                0xFFE5E7EB,
+                                                              ),
                                                               width: 1.0,
                                                             ),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsets.all(
-                                                                    8.0),
+                                                                  8.0,
+                                                                ),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -689,37 +775,37 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  padding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                      ),
                                                                   child: Text(
                                                                     'DATA HORA',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.outfit(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                                                                          ),
-                                                                          color:
-                                                                              Color(0xFF15161E),
-                                                                          fontSize:
-                                                                              22.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .titleLarge
-                                                                              .fontStyle,
-                                                                        ),
+                                                                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                      font: GoogleFonts.outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).titleLarge.fontStyle,
+                                                                      ),
+                                                                      color: Color(
+                                                                        0xFF15161E,
+                                                                      ),
+                                                                      fontSize:
+                                                                          22.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).titleLarge.fontStyle,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Row(
@@ -731,37 +817,47 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          RichText(
-                                                                        textScaler:
-                                                                            MediaQuery.of(context).textScaler,
-                                                                        text:
-                                                                            TextSpan(
+                                                                      padding:
+                                                                          EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                          ),
+                                                                      child: RichText(
+                                                                        textScaler: MediaQuery.of(
+                                                                          context,
+                                                                        ).textScaler,
+                                                                        text: TextSpan(
                                                                           children: [
                                                                             TextSpan(
                                                                               text: 'ASSUNTO',
                                                                               style: TextStyle(
-                                                                                color: Color(0xFF6F61EF),
+                                                                                color: Color(
+                                                                                  0xFF6F61EF,
+                                                                                ),
                                                                               ),
-                                                                            )
+                                                                            ),
                                                                           ],
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).labelMedium.override(
                                                                                 font: GoogleFonts.outfit(
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).labelMedium.fontStyle,
                                                                                 ),
-                                                                                color: Color(0xFF606A85),
+                                                                                color: Color(
+                                                                                  0xFF606A85,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
-                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).labelMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -775,43 +871,45 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
+                                                            EdgeInsetsDirectional.fromSTEB(
+                                                              16.0,
+                                                              0.0,
+                                                              16.0,
+                                                              0.0,
+                                                            ),
                                                         child: Container(
                                                           width: 220.0,
                                                           height: 93.8,
-                                                          decoration:
-                                                              BoxDecoration(
+                                                          decoration: BoxDecoration(
                                                             color: Colors.white,
                                                             boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
-                                                                    0x33000000),
+                                                                  0x33000000,
+                                                                ),
                                                                 offset: Offset(
                                                                   0.0,
                                                                   2.0,
                                                                 ),
-                                                              )
+                                                              ),
                                                             ],
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
+                                                                BorderRadius.circular(
+                                                                  12.0,
+                                                                ),
                                                             border: Border.all(
                                                               color: Color(
-                                                                  0xFFE5E7EB),
+                                                                0xFFE5E7EB,
+                                                              ),
                                                               width: 1.0,
                                                             ),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsets.all(
-                                                                    8.0),
+                                                                  8.0,
+                                                                ),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -821,37 +919,37 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  padding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                      ),
                                                                   child: Text(
                                                                     'DATA HORA',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleLarge
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.outfit(
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                                                                          ),
-                                                                          color:
-                                                                              Color(0xFF15161E),
-                                                                          fontSize:
-                                                                              22.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .titleLarge
-                                                                              .fontStyle,
-                                                                        ),
+                                                                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                      font: GoogleFonts.outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).titleLarge.fontStyle,
+                                                                      ),
+                                                                      color: Color(
+                                                                        0xFF15161E,
+                                                                      ),
+                                                                      fontSize:
+                                                                          22.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).titleLarge.fontStyle,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Row(
@@ -863,37 +961,47 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          RichText(
-                                                                        textScaler:
-                                                                            MediaQuery.of(context).textScaler,
-                                                                        text:
-                                                                            TextSpan(
+                                                                      padding:
+                                                                          EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                          ),
+                                                                      child: RichText(
+                                                                        textScaler: MediaQuery.of(
+                                                                          context,
+                                                                        ).textScaler,
+                                                                        text: TextSpan(
                                                                           children: [
                                                                             TextSpan(
                                                                               text: 'ASSUNTO',
                                                                               style: TextStyle(
-                                                                                color: Color(0xFF6F61EF),
+                                                                                color: Color(
+                                                                                  0xFF6F61EF,
+                                                                                ),
                                                                               ),
-                                                                            )
+                                                                            ),
                                                                           ],
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .override(
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).labelMedium.override(
                                                                                 font: GoogleFonts.outfit(
                                                                                   fontWeight: FontWeight.w500,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).labelMedium.fontStyle,
                                                                                 ),
-                                                                                color: Color(0xFF606A85),
+                                                                                color: Color(
+                                                                                  0xFF606A85,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
-                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).labelMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -905,8 +1013,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                    ].divide(
-                                                        SizedBox(height: 12.0)),
+                                                    ].divide(SizedBox(height: 12.0)),
                                                   ),
                                                 ),
                                               ],

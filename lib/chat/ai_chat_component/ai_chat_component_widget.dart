@@ -54,9 +54,7 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
       child: Container(
         width: double.infinity,
         height: double.infinity,
-        constraints: BoxConstraints(
-          maxWidth: 770.0,
-        ),
+        constraints: BoxConstraints(maxWidth: 770.0),
         decoration: BoxDecoration(),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -81,14 +79,15 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                     Expanded(
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 0.0),
+                          12.0,
+                          12.0,
+                          12.0,
+                          0.0,
+                        ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: BackdropFilter(
-                            filter: ImageFilter.blur(
-                              sigmaX: 5.0,
-                              sigmaY: 4.0,
-                            ),
+                            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 4.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -105,13 +104,15 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.0, -1.0),
+                                      alignment: AlignmentDirectional(
+                                        0.0,
+                                        -1.0,
+                                      ),
                                       child: Builder(
                                         builder: (context) {
                                           final chat =
                                               _model.chatHistory?.toList() ??
-                                                  [];
+                                              [];
                                           if (chat.isEmpty) {
                                             return Container(
                                               width: double.infinity,
@@ -131,9 +132,13 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                             itemBuilder: (context, chatIndex) {
                                               final chatItem = chat[chatIndex];
                                               return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 12.0, 0.0),
+                                                padding:
+                                                    EdgeInsetsDirectional.fromSTEB(
+                                                      12.0,
+                                                      12.0,
+                                                      12.0,
+                                                      0.0,
+                                                    ),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -156,15 +161,16 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                     .start,
                                                             children: [
                                                               Container(
-                                                                constraints:
-                                                                    BoxConstraints(
+                                                                constraints: BoxConstraints(
                                                                   maxWidth: () {
-                                                                    if (MediaQuery.sizeOf(context)
-                                                                            .width >=
+                                                                    if (MediaQuery.sizeOf(
+                                                                          context,
+                                                                        ).width >=
                                                                         1170.0) {
                                                                       return 700.0;
-                                                                    } else if (MediaQuery.sizeOf(context)
-                                                                            .width <=
+                                                                    } else if (MediaQuery.sizeOf(
+                                                                          context,
+                                                                        ).width <=
                                                                         470.0) {
                                                                       return 330.0;
                                                                     } else {
@@ -172,42 +178,44 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                     }
                                                                   }(),
                                                                 ),
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent1,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
+                                                                decoration: BoxDecoration(
+                                                                  color:
+                                                                      FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).accent1,
+                                                                  borderRadius: BorderRadius.only(
                                                                     bottomLeft:
                                                                         Radius.circular(
-                                                                            0.0),
+                                                                          0.0,
+                                                                        ),
                                                                     bottomRight:
                                                                         Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
+                                                                          12.0,
+                                                                        ),
+                                                                    topLeft:
+                                                                        Radius.circular(
+                                                                          12.0,
+                                                                        ),
+                                                                    topRight:
+                                                                        Radius.circular(
+                                                                          12.0,
+                                                                        ),
                                                                   ),
-                                                                  border: Border
-                                                                      .all(
+                                                                  border: Border.all(
                                                                     color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
+                                                                      context,
+                                                                    ).primary,
                                                                     width: 2.0,
                                                                   ),
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          8.0,
-                                                                          12.0,
-                                                                          8.0),
+                                                                  padding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                        12.0,
+                                                                        8.0,
+                                                                        12.0,
+                                                                        8.0,
+                                                                      ),
                                                                   child: Column(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -217,37 +225,46 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                             .start,
                                                                     children: [
                                                                       SelectionArea(
-                                                                          child:
-                                                                              AutoSizeText(
-                                                                        getJsonField(
-                                                                          chatItem,
-                                                                          r'''$['content']''',
-                                                                        ).toString(),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.inter(
-                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                        child: AutoSizeText(
+                                                                          getJsonField(
+                                                                            chatItem,
+                                                                            r'''$['content']''',
+                                                                          ).toString(),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).bodyMedium.override(
+                                                                                font: GoogleFonts.inter(
+                                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).bodyMedium.fontStyle,
+                                                                                ),
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).bodyMedium.fontStyle,
+                                                                                lineHeight: 1.5,
                                                                               ),
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              lineHeight: 1.5,
-                                                                            ),
-                                                                      )),
+                                                                        ),
+                                                                      ),
                                                                     ],
                                                                   ),
                                                                 ),
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                    EdgeInsetsDirectional.fromSTEB(
+                                                                      0.0,
+                                                                      2.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                    ),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -259,92 +276,120 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                   highlightColor:
                                                                       Colors
                                                                           .transparent,
-                                                                  onTap:
-                                                                      () async {
+                                                                  onTap: () async {
                                                                     await Clipboard.setData(
-                                                                        ClipboardData(
-                                                                            text:
-                                                                                valueOrDefault<String>(
-                                                                      getJsonField(
-                                                                        chatItem,
-                                                                        r'''$['content']''',
-                                                                      )?.toString(),
-                                                                      '--',
-                                                                    )));
+                                                                      ClipboardData(
+                                                                        text:
+                                                                            valueOrDefault<
+                                                                              String
+                                                                            >(
+                                                                              getJsonField(
+                                                                                chatItem,
+                                                                                r'''$['content']''',
+                                                                              )?.toString(),
+                                                                              '--',
+                                                                            ),
+                                                                      ),
+                                                                    );
                                                                     ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
+                                                                      context,
+                                                                    ).showSnackBar(
                                                                       SnackBar(
-                                                                        content:
-                                                                            Text(
+                                                                        content: Text(
                                                                           'Response copied to clipboard.',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
+                                                                          style:
+                                                                              FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).bodyMedium.override(
                                                                                 font: GoogleFonts.inter(
-                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).bodyMedium.fontStyle,
                                                                                 ),
-                                                                                color: FlutterFlowTheme.of(context).info,
+                                                                                color: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).info,
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
-                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                fontWeight: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(
+                                                                                  context,
+                                                                                ).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
-                                                                        duration:
-                                                                            Duration(milliseconds: 2000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).primary,
+                                                                        duration: Duration(
+                                                                          milliseconds:
+                                                                              2000,
+                                                                        ),
+                                                                        backgroundColor: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).primary,
                                                                       ),
                                                                     );
                                                                   },
-                                                                  child:
-                                                                      Container(
+                                                                  child: Container(
                                                                     decoration:
                                                                         BoxDecoration(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          12.0,
-                                                                          4.0),
-                                                                      child:
-                                                                          Row(
+                                                                    child: Padding(
+                                                                      padding:
+                                                                          EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            12.0,
+                                                                            4.0,
+                                                                          ),
+                                                                      child: Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                4.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Icon(
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                            ),
+                                                                            child: Icon(
                                                                               Icons.content_copy,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              color: FlutterFlowTheme.of(
+                                                                                context,
+                                                                              ).secondaryText,
                                                                               size: 12.0,
                                                                             ),
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                4.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                            ),
+                                                                            child: Text(
                                                                               'Copy response',
-                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                              style:
+                                                                                  FlutterFlowTheme.of(
+                                                                                    context,
+                                                                                  ).labelSmall.override(
                                                                                     font: GoogleFonts.inter(
-                                                                                      fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                                        context,
+                                                                                      ).labelSmall.fontWeight,
+                                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                                        context,
+                                                                                      ).labelSmall.fontStyle,
                                                                                     ),
                                                                                     letterSpacing: 0.0,
-                                                                                    fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                                      context,
+                                                                                    ).labelSmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                                      context,
+                                                                                    ).labelSmall.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -367,17 +412,16 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                 .end,
                                                         children: [
                                                           Container(
-                                                            constraints:
-                                                                BoxConstraints(
+                                                            constraints: BoxConstraints(
                                                               maxWidth: () {
                                                                 if (MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width >=
+                                                                      context,
+                                                                    ).width >=
                                                                     1170.0) {
                                                                   return 700.0;
                                                                 } else if (MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width <=
+                                                                      context,
+                                                                    ).width <=
                                                                     470.0) {
                                                                   return 330.0;
                                                                 } else {
@@ -385,42 +429,43 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                 }
                                                               }(),
                                                             ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        12.0),
+                                                            decoration: BoxDecoration(
+                                                              color: FlutterFlowTheme.of(
+                                                                context,
+                                                              ).primaryBackground,
+                                                              borderRadius: BorderRadius.only(
+                                                                bottomLeft:
+                                                                    Radius.circular(
+                                                                      12.0,
+                                                                    ),
+                                                                bottomRight:
+                                                                    Radius.circular(
+                                                                      0.0,
+                                                                    ),
+                                                                topLeft:
+                                                                    Radius.circular(
+                                                                      12.0,
+                                                                    ),
+                                                                topRight:
+                                                                    Radius.circular(
+                                                                      12.0,
+                                                                    ),
                                                               ),
-                                                              border:
-                                                                  Border.all(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
+                                                              border: Border.all(
+                                                                color:
+                                                                    FlutterFlowTheme.of(
+                                                                      context,
+                                                                    ).alternate,
                                                               ),
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          8.0,
-                                                                          12.0,
-                                                                          8.0),
+                                                                  EdgeInsetsDirectional.fromSTEB(
+                                                                    12.0,
+                                                                    8.0,
+                                                                    12.0,
+                                                                    8.0,
+                                                                  ),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -434,26 +479,24 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                                                                       chatItem,
                                                                       r'''$['content']''',
                                                                     ).toString(),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.inter(
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
+                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                      font: GoogleFonts.inter(
+                                                                        fontWeight: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).bodyMedium.fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(
+                                                                          context,
+                                                                        ).bodyMedium.fontStyle,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).bodyMedium.fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).bodyMedium.fontStyle,
+                                                                    ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -505,11 +548,8 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                     BoxShadow(
                       blurRadius: 3.0,
                       color: Color(0x33000000),
-                      offset: Offset(
-                        0.0,
-                        1.0,
-                      ),
-                    )
+                      offset: Offset(0.0, 1.0),
+                    ),
                   ],
                   borderRadius: BorderRadius.circular(12.0),
                 ),
@@ -525,44 +565,44 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Type something...',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelLarge.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelLarge
-                                        .fontStyle,
-                                  ),
-                          errorStyle:
-                              FlutterFlowTheme.of(context).bodyLarge.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context).error,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontStyle,
-                                  ),
+                          hintStyle: FlutterFlowTheme.of(context).labelLarge
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(
+                                    context,
+                                  ).labelLarge.fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(
+                                    context,
+                                  ).labelLarge.fontStyle,
+                                ),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(
+                                  context,
+                                ).labelLarge.fontWeight,
+                                fontStyle: FlutterFlowTheme.of(
+                                  context,
+                                ).labelLarge.fontStyle,
+                              ),
+                          errorStyle: FlutterFlowTheme.of(context).bodyLarge
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(
+                                    context,
+                                  ).bodyLarge.fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(
+                                    context,
+                                  ).bodyLarge.fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).error,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(
+                                  context,
+                                ).bodyLarge.fontWeight,
+                                fontStyle: FlutterFlowTheme.of(
+                                  context,
+                                ).bodyLarge.fontStyle,
+                              ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -592,39 +632,47 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 24.0, 70.0, 24.0),
+                            16.0,
+                            24.0,
+                            70.0,
+                            24.0,
+                          ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontStyle,
-                            ),
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(
+                              context,
+                            ).bodyLarge.fontWeight,
+                            fontStyle: FlutterFlowTheme.of(
+                              context,
+                            ).bodyLarge.fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(
+                            context,
+                          ).bodyLarge.fontWeight,
+                          fontStyle: FlutterFlowTheme.of(
+                            context,
+                          ).bodyLarge.fontStyle,
+                        ),
                         maxLines: 8,
                         minLines: 1,
                         keyboardType: TextInputType.multiline,
                         cursorColor: FlutterFlowTheme.of(context).primary,
-                        validator:
-                            _model.textControllerValidator.asValidator(context),
+                        validator: _model.textControllerValidator.asValidator(
+                          context,
+                        ),
                         inputFormatters: [
                           if (!isAndroid && !isiOS)
-                            TextInputFormatter.withFunction(
-                                (oldValue, newValue) {
+                            TextInputFormatter.withFunction((
+                              oldValue,
+                              newValue,
+                            ) {
                               return TextEditingValue(
                                 selection: newValue.selection,
                                 text: newValue.text.toCapitalization(
-                                    TextCapitalization.sentences),
+                                  TextCapitalization.sentences,
+                                ),
                               );
                             }),
                         ],
@@ -647,25 +695,38 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                           // addToChat_aiTyping
                           _model.aiResponding = true;
                           _model.chatHistory = functions.saveChatHistory(
-                              _model.chatHistory,
-                              functions
-                                  .convertToJSON(_model.textController.text));
+                            _model.chatHistory,
+                            functions.convertToJSON(_model.textController.text),
+                          );
                           safeSetState(() {});
                           // The "chatHistory" is the generated JSON -- we send the whole chat history to AI in order for it to understand context.
-                          _model.chatGPTResponse =
-                              await OpenAIChatGPTGroup.sendFullPromptCall.call(
-                            apiKey: ' ',
-                            promptJson: _model.chatHistory,
-                          );
+                          _model.chatGPTResponse = await OpenAIChatGPTGroup
+                              .sendFullPromptCall
+                              .call(
+                                apiKey: ' ',
+                                promptJson: _model.chatHistory,
+                              );
+                          if ((_model.chatGPTResponse?.statusCode ?? 200) ==
+                              402) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Limite mensal de uso atingido'),
+                              ),
+                            );
+                            _model.aiResponding = false;
+                            safeSetState(() {});
+                            return;
+                          }
 
                           if ((_model.chatGPTResponse?.succeeded ?? true)) {
                             _model.aiResponding = false;
                             _model.chatHistory = functions.saveChatHistory(
-                                _model.chatHistory,
-                                getJsonField(
-                                  (_model.chatGPTResponse?.jsonBody ?? ''),
-                                  r'''$['choices'][0]['message']''',
-                                ));
+                              _model.chatHistory,
+                              getJsonField(
+                                (_model.chatGPTResponse?.jsonBody ?? ''),
+                                r'''$['choices'][0]['message']''',
+                              ),
+                            );
                             safeSetState(() {});
                             safeSetState(() {
                               _model.textController?.clear();
@@ -675,44 +736,39 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
                               SnackBar(
                                 content: Text(
                                   'Your API Call Failed!',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleSmall
+                                  style: FlutterFlowTheme.of(context).titleSmall
                                       .override(
                                         font: GoogleFonts.interTight(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
+                                          fontWeight: FlutterFlowTheme.of(
+                                            context,
+                                          ).titleSmall.fontWeight,
+                                          fontStyle: FlutterFlowTheme.of(
+                                            context,
+                                          ).titleSmall.fontStyle,
                                         ),
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).info,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
+                                        fontWeight: FlutterFlowTheme.of(
+                                          context,
+                                        ).titleSmall.fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(
+                                          context,
+                                        ).titleSmall.fontStyle,
                                       ),
                                 ),
                                 duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).error,
+                                backgroundColor: FlutterFlowTheme.of(
+                                  context,
+                                ).error,
                               ),
                             );
                             _model.aiResponding = false;
                             safeSetState(() {});
                           }
 
-                          await Future.delayed(
-                            Duration(
-                              milliseconds: 800,
-                            ),
-                          );
+                          await Future.delayed(Duration(milliseconds: 800));
                           await _model.listViewController?.animateTo(
                             _model.listViewController!.position.maxScrollExtent,
                             duration: Duration(milliseconds: 100),
