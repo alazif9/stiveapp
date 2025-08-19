@@ -33,8 +33,8 @@ void _addCost(double cost) {
 class OpenAINovoGroup {
   static String getBaseUrl() => 'https://api.openai.com/';
   static Map<String, String> headers = {
-    'Authorization':
-        'Bearer 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',
+    'Authorization': 'Bearer YOUR_OPENAI_API_KEY',
+    'OpenAI-Beta': 'assistants=v2',
   };
   static CriarConversaCall criarConversaCall = CriarConversaCall();
   static PostarMensagemCall postarMensagemCall = PostarMensagemCall();
@@ -59,11 +59,7 @@ class CriarConversaCall {
       callName: 'Criar Conversa',
       apiUrl: '${baseUrl}v1/threads',
       callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {},
       bodyType: BodyType.JSON,
       returnBody: true,
@@ -79,18 +75,12 @@ class CriarConversaCall {
     return response;
   }
 
-  String? id(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.id''',
-      ));
-  String? object(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.object''',
-      ));
-  int? createdAt(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.created_at''',
-      ));
+  String? id(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.id'''));
+  String? object(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.object'''));
+  int? createdAt(dynamic response) =>
+      castToType<int>(getJsonField(response, r'''$.created_at'''));
 }
 
 class PostarMensagemCall {
@@ -104,7 +94,8 @@ class PostarMensagemCall {
     }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
+    final ffApiRequestBody =
+        '''
 {
   "role": "user",
   "content": "${escapeStringForJson(content)}"
@@ -113,11 +104,7 @@ class PostarMensagemCall {
       callName: 'Postar Mensagem',
       apiUrl: '${baseUrl}v1/threads/${theadId}/messages',
       callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -146,7 +133,8 @@ class AtribuirAssistenteCall {
     }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
+    final ffApiRequestBody =
+        '''
 {
   "assistant_id": "${escapeStringForJson(assistantId)}"
 }''';
@@ -154,11 +142,7 @@ class AtribuirAssistenteCall {
       callName: 'AtribuirAssistente',
       apiUrl: '${baseUrl}v1/threads/${threadId}/runs',
       callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -175,10 +159,8 @@ class AtribuirAssistenteCall {
     return response;
   }
 
-  String? runId(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.id''',
-      ));
+  String? runId(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.id'''));
 }
 
 class ConsultarAndamentoDaThreadCall {
@@ -197,11 +179,7 @@ class ConsultarAndamentoDaThreadCall {
       callName: 'Consultar andamento da Thread',
       apiUrl: '${baseUrl}v1/threads/${threadsId}/runs/${runId}',
       callType: ApiCallType.GET,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -216,16 +194,12 @@ class ConsultarAndamentoDaThreadCall {
     return response;
   }
 
-  String? status(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.status''',
-      ));
+  String? status(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.status'''));
 }
 
 class ConsultarMensagensCall {
-  Future<ApiCallResponse> call({
-    String? threadId = '',
-  }) async {
+  Future<ApiCallResponse> call({String? threadId = ''}) async {
     final estimatedCost = _estimateCost(0);
     if (_isOverLimit(estimatedCost)) {
       return _limitExceededResponse();
@@ -236,11 +210,7 @@ class ConsultarMensagensCall {
       callName: 'Consultar Mensagens',
       apiUrl: '${baseUrl}v1/threads/${threadId}/messages',
       callType: ApiCallType.GET,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
@@ -255,17 +225,12 @@ class ConsultarMensagensCall {
     return response;
   }
 
-  List? texto(dynamic response) => getJsonField(
-        response,
-        r'''$.data[:].content[:].text''',
-        true,
-      ) as List?;
+  List? texto(dynamic response) =>
+      getJsonField(response, r'''$.data[:].content[:].text''', true) as List?;
 }
 
 class TranscricaoaudioCall {
-  Future<ApiCallResponse> call({
-    FFUploadedFile? file,
-  }) async {
+  Future<ApiCallResponse> call({FFUploadedFile? file}) async {
     final estimatedCost = _estimateCost(file?.bytes?.length ?? 0);
     if (_isOverLimit(estimatedCost)) {
       return _limitExceededResponse();
@@ -276,11 +241,7 @@ class TranscricaoaudioCall {
       callName: 'transcricaoaudio',
       apiUrl: '${baseUrl}v1/audio/transcriptions',
       callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer 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',
-        'OpenAI-Beta': 'assistants=v2',
-      },
+      headers: OpenAINovoGroup.headers,
       params: {
         'file': file,
         'model': "whisper-1",
@@ -308,9 +269,7 @@ class TranscricaoaudioCall {
 
 class OpenAIChatGPTGroup {
   static String getBaseUrl() => 'https://api.openai.com/v1';
-  static Map<String, String> headers = {
-    'Content-Type': 'application/json',
-  };
+  static Map<String, String> headers = {'Content-Type': 'application/json'};
   static SendFullPromptCall sendFullPromptCall = SendFullPromptCall();
 }
 
@@ -326,7 +285,8 @@ class SendFullPromptCall {
     }
     final baseUrl = OpenAIChatGPTGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
+    final ffApiRequestBody =
+        '''
 {
   "model": "gpt-4",
   "messages": ${prompt}
@@ -355,18 +315,14 @@ class SendFullPromptCall {
     return response;
   }
 
-  int? createdTimestamp(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.created''',
-      ));
-  String? role(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.choices[:].message.role''',
-      ));
-  String? content(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.choices[:].message.content''',
-      ));
+  int? createdTimestamp(dynamic response) =>
+      castToType<int>(getJsonField(response, r'''$.created'''));
+  String? role(dynamic response) => castToType<String>(
+    getJsonField(response, r'''$.choices[:].message.role'''),
+  );
+  String? content(dynamic response) => castToType<String>(
+    getJsonField(response, r'''$.choices[:].message.content'''),
+  );
 }
 
 /// End OpenAI ChatGPT Group Code
@@ -385,9 +341,7 @@ class MercadoPagoGroup {
 }
 
 class GerarAssinaturaCall {
-  Future<ApiCallResponse> call({
-    dynamic bodyJson,
-  }) async {
+  Future<ApiCallResponse> call({dynamic bodyJson}) async {
     final baseUrl = MercadoPagoGroup.getBaseUrl();
 
     final body = _serializeJson(bodyJson);
@@ -413,20 +367,14 @@ ${body}''';
     );
   }
 
-  String? url(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.init_point''',
-      ));
-  String? id(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.id''',
-      ));
+  String? url(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.init_point'''));
+  String? id(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.id'''));
 }
 
 class DadosDaAssinaturaCall {
-  Future<ApiCallResponse> call({
-    String? subscribeId = '',
-  }) async {
+  Future<ApiCallResponse> call({String? subscribeId = ''}) async {
     final baseUrl = MercadoPagoGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
@@ -437,9 +385,7 @@ class DadosDaAssinaturaCall {
         'Authorization':
             'Bearer TEST-6146575176226094-081414-b232eb84425cd787b6386724be16d38f-222761302',
       },
-      params: {
-        'subscribe_id': subscribeId,
-      },
+      params: {'subscribe_id': subscribeId},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -460,7 +406,8 @@ class PixCall {
   }) async {
     final baseUrl = MercadoPagoGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
+    final ffApiRequestBody =
+        '''
 {
   "transaction_amount": ${transactionAmount},
   "description": "Assinatura Mensal Stivie",
@@ -493,14 +440,14 @@ class PixCall {
     );
   }
 
-  String? url(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.point_of_interaction.transaction_data.ticket_url''',
-      ));
-  int? id(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.id''',
-      ));
+  String? url(dynamic response) => castToType<String>(
+    getJsonField(
+      response,
+      r'''$.point_of_interaction.transaction_data.ticket_url''',
+    ),
+  );
+  int? id(dynamic response) =>
+      castToType<int>(getJsonField(response, r'''$.id'''));
 }
 
 /// End Mercado Pago Group Code
@@ -510,7 +457,8 @@ class OpenaiCall {
     String? content = '',
     String? teste = '',
   }) async {
-    final ffApiRequestBody = '''
+    final ffApiRequestBody =
+        '''
 {
   "model": "gpt-3.5-turbo",
   "temperature": 0.5,
@@ -531,8 +479,7 @@ class OpenaiCall {
       apiUrl: 'https://api.openai.com/v1/chat/completions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization':
-            'Bearer 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',
+        'Authorization': OpenAINovoGroup.headers['Authorization']!,
         'Content-type': 'application/json',
       },
       params: {},
@@ -547,14 +494,12 @@ class OpenaiCall {
     );
   }
 
-  static String? test(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.choices[0].message.content''',
-      ));
-  static String? resposta(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.choices[:].message.content''',
-      ));
+  static String? test(dynamic response) => castToType<String>(
+    getJsonField(response, r'''$.choices[0].message.content'''),
+  );
+  static String? resposta(dynamic response) => castToType<String>(
+    getJsonField(response, r'''$.choices[:].message.content'''),
+  );
 }
 
 class GenerateResponseCall {
@@ -583,20 +528,13 @@ class GenerateResponseCall {
 }
 
 class TranscricaoimagemCall {
-  static Future<ApiCallResponse> call({
-    FFUploadedFile? file,
-  }) async {
+  static Future<ApiCallResponse> call({FFUploadedFile? file}) async {
     return ApiManager.instance.makeApiCall(
       callName: 'transcricaoimagem',
       apiUrl: 'https://api.ocr.space/parse/image',
       callType: ApiCallType.POST,
-      headers: {
-        'apikey': 'K85315312988957',
-      },
-      params: {
-        'file': file,
-        'isOverlayRequired': "false",
-      },
+      headers: {'apikey': 'K85315312988957'},
+      params: {'file': file, 'isOverlayRequired': "false"},
       bodyType: BodyType.MULTIPART,
       returnBody: true,
       encodeBodyUtf8: false,
@@ -609,10 +547,9 @@ class TranscricaoimagemCall {
 }
 
 class TesteAPICall {
-  static Future<ApiCallResponse> call({
-    String? content = '',
-  }) async {
-    final ffApiRequestBody = '''
+  static Future<ApiCallResponse> call({String? content = ''}) async {
+    final ffApiRequestBody =
+        '''
 {
   "model": "gpt-3.5-turbo",
   "temperature": 0.5,
@@ -633,8 +570,7 @@ class TesteAPICall {
       apiUrl: 'https://api.openai.com/v1/chat/completions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization':
-            'Bearer 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',
+        'Authorization': OpenAINovoGroup.headers['Authorization']!,
         'Content-type': 'application/json',
       },
       params: {},
@@ -649,17 +585,15 @@ class TesteAPICall {
     );
   }
 
-  static String? teste(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.choices[:].message.content''',
-      ));
+  static String? teste(dynamic response) => castToType<String>(
+    getJsonField(response, r'''$.choices[:].message.content'''),
+  );
 }
 
 class AudioApiCall {
-  static Future<ApiCallResponse> call({
-    String? text = '',
-  }) async {
-    final ffApiRequestBody = '''
+  static Future<ApiCallResponse> call({String? text = ''}) async {
+    final ffApiRequestBody =
+        '''
 {
   "model": "speech-01-turbo",
   "text": "${escapeStringForJson(text)}",
@@ -691,14 +625,10 @@ class AudioApiCall {
     );
   }
 
-  static dynamic data(dynamic response) => getJsonField(
-        response,
-        r'''$['data']''',
-      );
-  static String? audio(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.data.audio''',
-      ));
+  static dynamic data(dynamic response) =>
+      getJsonField(response, r'''$['data']''');
+  static String? audio(dynamic response) =>
+      castToType<String>(getJsonField(response, r'''$.data.audio'''));
 }
 
 class ApiPagingParams {
