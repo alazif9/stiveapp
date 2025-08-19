@@ -37,4 +37,10 @@ class FFAppState extends ChangeNotifier {
   set otpCodeVerify(bool value) {
     _otpCodeVerify = value;
   }
+
+  double _currentMonthCost = 0.0;
+  double get currentMonthCost => _currentMonthCost;
+  set currentMonthCost(double value) {
+    _currentMonthCost = value;
+  }
 }

@@ -3,11 +3,30 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/app_state.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
+
+double _estimateCost(int size) => (size / 1000) * 0.002;
+
+bool _isOverLimit(double cost) {
+  final isPremium = currentUserDocument?.isPremium ?? false;
+  final limit = isPremium ? 10.0 : 0.30;
+  return FFAppState().currentMonthCost + cost > limit;
+}
+
+ApiCallResponse _limitExceededResponse() =>
+    ApiCallResponse({'error': 'limit_exceeded'}, {}, 402);
+
+void _addCost(double cost) {
+  FFAppState().update(() {
+    FFAppState().currentMonthCost += cost;
+  });
+}
 
 /// Start OpenAINovo Group Code
 
@@ -30,9 +49,13 @@ class OpenAINovoGroup {
 
 class CriarConversaCall {
   Future<ApiCallResponse> call() async {
+    final estimatedCost = _estimateCost(0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'Criar Conversa',
       apiUrl: '${baseUrl}v1/threads',
       callType: ApiCallType.POST,
@@ -50,6 +73,10 @@ class CriarConversaCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 
   String? id(dynamic response) => castToType<String>(getJsonField(
@@ -71,6 +98,10 @@ class PostarMensagemCall {
     String? theadId = '',
     String? content = '',
   }) async {
+    final estimatedCost = _estimateCost(content?.length ?? 0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
@@ -78,7 +109,7 @@ class PostarMensagemCall {
   "role": "user",
   "content": "${escapeStringForJson(content)}"
 }''';
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'Postar Mensagem',
       apiUrl: '${baseUrl}v1/threads/${theadId}/messages',
       callType: ApiCallType.POST,
@@ -97,6 +128,10 @@ class PostarMensagemCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 }
 
@@ -105,13 +140,17 @@ class AtribuirAssistenteCall {
     String? threadId = '',
     String? assistantId = '',
   }) async {
+    final estimatedCost = _estimateCost(0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
   "assistant_id": "${escapeStringForJson(assistantId)}"
 }''';
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'AtribuirAssistente',
       apiUrl: '${baseUrl}v1/threads/${threadId}/runs',
       callType: ApiCallType.POST,
@@ -130,6 +169,10 @@ class AtribuirAssistenteCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 
   String? runId(dynamic response) => castToType<String>(getJsonField(
@@ -144,9 +187,13 @@ class ConsultarAndamentoDaThreadCall {
     String? runId = '',
     String? assistantId = '',
   }) async {
+    final estimatedCost = _estimateCost(0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'Consultar andamento da Thread',
       apiUrl: '${baseUrl}v1/threads/${threadsId}/runs/${runId}',
       callType: ApiCallType.GET,
@@ -163,6 +210,10 @@ class ConsultarAndamentoDaThreadCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 
   String? status(dynamic response) => castToType<String>(getJsonField(
@@ -175,9 +226,13 @@ class ConsultarMensagensCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
   }) async {
+    final estimatedCost = _estimateCost(0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'Consultar Mensagens',
       apiUrl: '${baseUrl}v1/threads/${threadId}/messages',
       callType: ApiCallType.GET,
@@ -194,6 +249,10 @@ class ConsultarMensagensCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 
   List? texto(dynamic response) => getJsonField(
@@ -207,9 +266,13 @@ class TranscricaoaudioCall {
   Future<ApiCallResponse> call({
     FFUploadedFile? file,
   }) async {
+    final estimatedCost = _estimateCost(file?.bytes?.length ?? 0);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAINovoGroup.getBaseUrl();
 
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'transcricaoaudio',
       apiUrl: '${baseUrl}v1/audio/transcriptions',
       callType: ApiCallType.POST,
@@ -232,6 +295,10 @@ class TranscricaoaudioCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 }
 
@@ -252,15 +319,19 @@ class SendFullPromptCall {
     String? apiKey = '',
     dynamic promptJson,
   }) async {
+    final prompt = _serializeJson(promptJson);
+    final estimatedCost = _estimateCost(prompt.length);
+    if (_isOverLimit(estimatedCost)) {
+      return _limitExceededResponse();
+    }
     final baseUrl = OpenAIChatGPTGroup.getBaseUrl();
 
-    final prompt = _serializeJson(promptJson);
     final ffApiRequestBody = '''
 {
   "model": "gpt-4",
   "messages": ${prompt}
 }''';
-    return ApiManager.instance.makeApiCall(
+    final response = await ApiManager.instance.makeApiCall(
       callName: 'Send Full Prompt',
       apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
@@ -278,6 +349,10 @@ class SendFullPromptCall {
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
+    if (response.succeeded) {
+      _addCost(estimatedCost);
+    }
+    return response;
   }
 
   int? createdTimestamp(dynamic response) => castToType<int>(getJsonField(

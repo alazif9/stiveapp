@@ -285,8 +285,24 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                   await OpenAINovoGroup
                                                                       .criarConversaCall
                                                                       .call();
-
-                                                              if ((_model
+                                                              if ((_model.apiResultv4t?.statusCode ?? 200) ==
+                                                                  402) {
+                                                                ScaffoldMessenger.of(context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content: Text(
+                                                                      'Limite mensal de uso atingido',
+                                                                      style: TextStyle(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                    ),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                  ),
+                                                                );
+                                                              } else if ((_model
                                                                       .apiResultv4t
                                                                       ?.succeeded ??
                                                                   true)) {

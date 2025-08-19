@@ -634,6 +634,21 @@ class _ChatbotstiveaiWidgetState extends State<ChatbotstiveaiWidget> {
                                         .call(
                                       file: _model.file,
                                     );
+                                    if ((_model.apiResult9m6?.statusCode ??
+                                            200) ==
+                                        402) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Limite mensal de uso atingido',
+                                          ),
+                                        ),
+                                      );
+                                      _model.isLoading = false;
+                                      safeSetState(() {});
+                                      return;
+                                    }
 
                                     if ((_model.apiResult9m6?.succeeded ??
                                         true)) {
@@ -820,6 +835,21 @@ class _ChatbotstiveaiWidgetState extends State<ChatbotstiveaiWidget> {
                                       theadId: widget.threadId,
                                       content: _model.mensagemUsuario,
                                     );
+                                    if ((_model.returnApiPostarMsg?.statusCode ??
+                                            200) ==
+                                        402) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Limite mensal de uso atingido',
+                                          ),
+                                        ),
+                                      );
+                                      _model.isTyping = false;
+                                      safeSetState(() {});
+                                      return;
+                                    }
 
                                     _model.returnAssistent =
                                         await OpenAINovoGroup
@@ -889,6 +919,20 @@ class _ChatbotstiveaiWidgetState extends State<ChatbotstiveaiWidget> {
                                         content:
                                             '${_model.mensagemUsuario}. Retornar em texto.',
                                       );
+                                      if ((_model.postarMsg2?.statusCode ?? 200) ==
+                                          402) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Limite mensal de uso atingido',
+                                            ),
+                                          ),
+                                        );
+                                        _model.isTyping = false;
+                                        safeSetState(() {});
+                                        return;
+                                      }
 
                                       _model.returnAssistent2 =
                                           await OpenAINovoGroup
