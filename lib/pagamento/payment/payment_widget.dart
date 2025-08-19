@@ -86,10 +86,10 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   width: 140.0,
                   height: 140.0,
                   decoration: BoxDecoration(
-                    color: Color(0x4CF9F9FB),
+                    color: Color(0x89F1F4F8),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Color(0xFF626060),
+                      color: Color(0xFF2AF400),
                       width: 2.0,
                     ),
                   ),
@@ -98,7 +98,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     padding: EdgeInsets.all(30.0),
                     child: Icon(
                       Icons.check_rounded,
-                      color: Color(0x76F5F4FB),
+                      color: Color(0xCE11FB00),
                       size: 60.0,
                     ),
                   ),
@@ -108,71 +108,84 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   child: Text(
                     'Pagamento Confirmado!',
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          font: GoogleFonts.ubuntu(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .displaySmall
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .displaySmall
-                                .fontStyle,
-                          ),
-                          color: Color(0xFF54BE54),
-                          fontSize: 34.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .fontStyle,
-                        ),
+                      font: GoogleFonts.ubuntu(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .displaySmall
+                            .fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                      ),
+                      color: Color(0xFF54BE54),
+                      fontSize: 34.0,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black,
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 2.0,
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
-                    'R\$ 39.90',
+                    'R\$ 49.90',
                     style: FlutterFlowTheme.of(context).displayLarge.override(
-                          font: GoogleFonts.interTight(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .displayLarge
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .displayLarge
-                                .fontStyle,
-                          ),
-                          color: Color(0xDCF3F5F7),
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .fontStyle,
-                        ),
+                      font: GoogleFonts.interTight(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .displayLarge
+                            .fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).displayLarge.fontStyle,
+                      ),
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).displayLarge.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).displayLarge.fontStyle,
+                      shadows: [
+                        Shadow(
+                          color: Color(0xFF1A1A1A),
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 2.0,
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
                   child: Text(
-                    'Your payment has been confirmed, it may take 1-2 hours in order for your payment to go through and show up in your transation list.',
+                    'Você agora é Premium! Aproveite!',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).labelLarge.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelLarge
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelLarge
-                                .fontStyle,
-                          ),
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelLarge
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
-                        ),
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      ),
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black,
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 2.0,
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -292,7 +305,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'Go Home',
+                          text: 'Retornar',
                           options: FFButtonOptions(
                             width: 230.0,
                             height: 50.0,

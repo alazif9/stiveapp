@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -77,11 +79,13 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
             width: 324.5,
             height: 100.0,
             decoration: BoxDecoration(),
-            child: Align(
-              alignment: AlignmentDirectional(-1.0, 0.0),
-              child: Text(
-                'Feedback',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  child: Text(
+                    'Feedback',
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
                       font: GoogleFonts.ubuntu(
                         fontWeight: FontWeight.w500,
                         fontStyle: FlutterFlowTheme.of(context)
@@ -94,23 +98,54 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       fontWeight: FontWeight.w500,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                      shadows: [
+                        Shadow(
+                          color: Color(0xFF171717),
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 2.0,
+                        )
+                      ],
                     ),
-              ),
+                  ),
+                ),
+              ],
             ),
           ),
           actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            background: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/meajuda.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           centerTitle: false,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(),
-              child: Column(
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(),
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  'assets/images/meajudafundo.png',
+                  width: 455.7,
+                  height: 798.96,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
@@ -119,26 +154,37 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
-                          child: Text(
-                            'Utilize esta ferramenta para dar feedback, sugestões e críticas ao Stive. Juntos podemos aprimorar ainda mais a ferramenta!',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.ubuntu(
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 30.0, 0.0, 50.0),
+                            child: Text(
+                              'Utilize esta ferramenta para dar feedback, sugestões e críticas ao Stive. Juntos podemos aprimorar ainda mais a ferramenta!',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                font: GoogleFonts.ubuntu(
                                   fontWeight: FontWeight.w600,
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontStyle,
                                 ),
+                                color: Colors.white,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black,
+                                    offset: Offset(2.0, 2.0),
+                                    blurRadius: 2.0,
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -173,7 +219,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                          hintText: 'TextField',
+                          hintText: 'Ajude-nos a crescer!',
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     font: GoogleFonts.inter(
@@ -254,8 +300,19 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 10.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await FeedbackRecord.collection.doc().set({
+                            ...createFeedbackRecordData(
+                              uid: currentUserUid,
+                              nome: currentUserDisplayName,
+                              textoFeedback: _model.textController.text,
+                            ),
+                            ...mapToFirestore(
+                              {
+                                'data': FieldValue.serverTimestamp(),
+                              },
+                            ),
+                          });
                         },
                         text: 'Participar o fato!',
                         options: FFButtonOptions(
@@ -296,7 +353,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                   ),
                 ],
               ),
-            ),
+            ],
           ),
         ),
       ),

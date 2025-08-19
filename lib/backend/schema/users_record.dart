@@ -65,6 +65,16 @@ class UsersRecord extends FirestoreRecord {
   String get policia => _policia ?? '';
   bool hasPolicia() => _policia != null;
 
+  // "cod_indicacao" field.
+  String? _codIndicacao;
+  String get codIndicacao => _codIndicacao ?? '';
+  bool hasCodIndicacao() => _codIndicacao != null;
+
+  // "isPremiun" field.
+  bool? _isPremiun;
+  bool get isPremiun => _isPremiun ?? false;
+  bool hasIsPremiun() => _isPremiun != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -76,6 +86,8 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _posto = snapshotData['posto'] as String?;
     _policia = snapshotData['policia'] as String?;
+    _codIndicacao = snapshotData['cod_indicacao'] as String?;
+    _isPremiun = snapshotData['isPremiun'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -122,6 +134,8 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   String? posto,
   String? policia,
+  String? codIndicacao,
+  bool? isPremiun,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -135,6 +149,8 @@ Map<String, dynamic> createUsersRecordData({
       'phone_number': phoneNumber,
       'posto': posto,
       'policia': policia,
+      'cod_indicacao': codIndicacao,
+      'isPremiun': isPremiun,
     }.withoutNulls,
   );
 
@@ -155,7 +171,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.displayName == e2?.displayName &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.posto == e2?.posto &&
-        e1?.policia == e2?.policia;
+        e1?.policia == e2?.policia &&
+        e1?.codIndicacao == e2?.codIndicacao &&
+        e1?.isPremiun == e2?.isPremiun;
   }
 
   @override
@@ -169,7 +187,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.displayName,
         e?.phoneNumber,
         e?.posto,
-        e?.policia
+        e?.policia,
+        e?.codIndicacao,
+        e?.isPremiun
       ]);
 
   @override

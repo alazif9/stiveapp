@@ -1,10 +1,12 @@
-import '/flutter_flow/flutter_flow_credit_card_form.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pay_model.dart';
 export 'pay_model.dart';
@@ -48,6 +50,12 @@ class _PayWidgetState extends State<PayWidget> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              'assets/images/meajudafundo.png',
+            ).image,
+          ),
           boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
@@ -69,6 +77,7 @@ class _PayWidgetState extends State<PayWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
@@ -101,6 +110,7 @@ class _PayWidgetState extends State<PayWidget> {
                         borderRadius: 30.0,
                         borderWidth: 1.0,
                         buttonSize: 44.0,
+                        fillColor: Color(0xF7FFFFFF),
                         icon: Icon(
                           Icons.arrow_back_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -121,47 +131,63 @@ class _PayWidgetState extends State<PayWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  font: GoogleFonts.interTight(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .fontStyle,
-                                ),
+                              font: GoogleFonts.interTight(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontStyle,
+                              ),
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .fontStyle,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              'Fill in the information below to place your order.',
+                              'Escolha a forma de pagamento:',
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                                color: Color(0xFFF5F5F5),
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black,
+                                    offset: Offset(2.0, 2.0),
+                                    blurRadius: 2.0,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -176,177 +202,10 @@ class _PayWidgetState extends State<PayWidget> {
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                      child: FlutterFlowCreditCardForm(
-                        formKey: _model.creditCardFormKey,
-                        creditCardModel: _model.creditCardInfo,
-                        obscureNumber: true,
-                        obscureCvv: false,
-                        spacing: 10.0,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                        inputDecoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 4.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Price Breakdown',
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      font: GoogleFonts.inter(
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontStyle,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Base Price',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Taxes',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Cleaning Fee',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 16.0),
@@ -358,227 +217,404 @@ class _PayWidgetState extends State<PayWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Total',
+                                'Total:',
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
-                                      font: GoogleFonts.interTight(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .fontStyle,
-                                      ),
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 36.0,
-                                icon: Icon(
-                                  Icons.info_outlined,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 18.0,
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  fontSize: 30.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black,
+                                      offset: Offset(2.0, 2.0),
+                                      blurRadius: 2.0,
+                                    )
+                                  ],
                                 ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
                               ),
                             ],
                           ),
                           Text(
-                            '49.90',
+                            'R\$ 49.90/mês',
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
-                                  font: GoogleFonts.interTight(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .displaySmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .displaySmall
-                                      .fontStyle,
-                                ),
+                              font: GoogleFonts.interTight(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontStyle,
+                              ),
+                              color: Color(0xFFF7FBFD),
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .fontStyle,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Pay w/ Credit Card',
-                        options: FFButtonOptions(
-                          width: 270.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.outfit(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        child: Text(
+                          'Plano de assinatura mensal',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: Color(0xFFF2F4F6),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(2.0, 2.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                      child: Text(
-                        'Or use an option below',
-                        style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  font: GoogleFonts.inter(
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.isLoading = !_model.isLoading;
+                          safeSetState(() {});
+                          _model.subscribeBody = SubscribeRequestBodyStruct(
+                            backUrl: 'https://suaapp.com/sucesso',
+                            externalReference: 'SUBS_12345',
+                            payerEmail: currentUserEmail,
+                            reason: 'Assinatura Plano Basic',
+                            autoRecurring:
+                                SubscribeRequestBodyAutoRecurringStruct(
+                              currencyId: 'BRL',
+                              transactionAmount: 39.90,
+                              frequency: 1,
+                              frequencyType: 'months',
+                            ),
+                          );
+                          safeSetState(() {});
+                          _model.apiResultrc3 =
+                              await MercadoPagoGroup.gerarAssinaturaCall.call(
+                            bodyJson: _model.subscribeBody?.toMap(),
+                          );
+
+                          if ((_model.apiResultrc3?.succeeded ?? true)) {
+                            await launchURL(
+                                MercadoPagoGroup.gerarAssinaturaCall.url(
+                              (_model.apiResultrc3?.jsonBody ?? ''),
+                            )!);
+                            _model.isLoading = !_model.isLoading;
+                            safeSetState(() {});
+
+                            await PagamentosRecord.createDoc(
+                                    currentUserReference!)
+                                .set({
+                              ...createPagamentosRecordData(
+                                transactionAmount: 39.90,
+                                paymentMethodId: 'subscribe',
+                                xIdempotencyKey: _model.idempotencyKey,
+                                idMercadoPago:
+                                    MercadoPagoGroup.gerarAssinaturaCall.id(
+                                  (_model.apiResultrc3?.jsonBody ?? ''),
+                                ),
+                                status: 'Pending',
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'date_created': FieldValue.serverTimestamp(),
+                                },
+                              ),
+                            });
+                            Navigator.pop(context);
+                          }
+
+                          safeSetState(() {});
+                        },
+                        text: 'Assinatura',
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 0.4,
+                          height: 66.4,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFFFDFBFF),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
+                                        .titleSmall
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Apple Pay',
-                        icon: FaIcon(
-                          FontAwesomeIcons.apple,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: 270.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.outfit(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(50.0),
+                            bottomRight: Radius.circular(50.0),
+                            topLeft: Radius.circular(50.0),
+                            topRight: Radius.circular(50.0),
                           ),
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Pay w/Paypal',
-                        icon: FaIcon(
-                          FontAwesomeIcons.paypal,
-                          size: 15.0,
+                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Total:',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  fontSize: 30.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black,
+                                      offset: Offset(2.0, 2.0),
+                                      blurRadius: 2.0,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'R\$ 99.00',
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
+                              font: GoogleFonts.interTight(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontStyle,
+                              ),
+                              color: Color(0xFFF7FBFD),
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .fontStyle,
+                              shadows: [
+                                Shadow(
+                                  color: Color(0xFF010101),
+                                  offset: Offset(2.0, 2.0),
+                                  blurRadius: 2.0,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        child: Text(
+                          'Pagamento único',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: Color(0xFFF0F2F3),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(2.0, 2.0),
+                                blurRadius: 2.0,
+                              )
+                            ],
+                          ),
                         ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          _model.isLoading = !_model.isLoading;
+                          safeSetState(() {});
+                          _model.idempotencyKey = functions.generateUuidV4();
+                          safeSetState(() {});
+                          _model.apiResult6mp =
+                              await MercadoPagoGroup.pixCall.call(
+                            payerLastName: currentUserDisplayName,
+                            idempotency: functions.generateUuidV4(),
+                            transactionAmount: 39.90,
+                            payerEmail: currentUserEmail,
+                            payerFirstName: currentUserDisplayName,
+                          );
+
+                          if ((_model.apiResult6mp?.succeeded ?? true)) {
+                            await launchURL(MercadoPagoGroup.pixCall.url(
+                              (_model.apiResult6mp?.jsonBody ?? ''),
+                            )!);
+                            _model.isLoading = !_model.isLoading;
+                            safeSetState(() {});
+
+                            await PagamentosRecord.createDoc(
+                                    currentUserReference!)
+                                .set({
+                              ...createPagamentosRecordData(
+                                transactionAmount: 39.90,
+                                paymentMethodId: 'Pix',
+                                xIdempotencyKey: _model.idempotencyKey,
+                                idMercadoPago: MercadoPagoGroup.pixCall
+                                    .id(
+                                      (_model.apiResult6mp?.jsonBody ?? ''),
+                                    )
+                                    ?.toString(),
+                                status: 'Pending',
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'date_created': FieldValue.serverTimestamp(),
+                                },
+                              ),
+                            });
+                            Navigator.pop(context);
+                          }
+
+                          safeSetState(() {});
+                        },
+                        text: 'Pix',
                         options: FFButtonOptions(
-                          width: 270.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: MediaQuery.sizeOf(context).width * 0.454,
+                          height: 61.7,
+                          padding: EdgeInsets.all(0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: Color(0xFFF0F0F3),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.outfit(
-                                      fontWeight: FontWeight.normal,
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 16.0,
+                                    color: Color(0xFF040404),
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(50.0),
+                            bottomRight: Radius.circular(50.0),
+                            topLeft: Radius.circular(50.0),
+                            topRight: Radius.circular(50.0),
                           ),
                         ),
                       ),

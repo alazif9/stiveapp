@@ -166,6 +166,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ChatAiScreenWidget.routeName,
           path: ChatAiScreenWidget.routePath,
           builder: (context, params) => ChatAiScreenWidget(),
+        ),
+        FFRoute(
+          name: SenhaRecupCopyWidget.routeName,
+          path: SenhaRecupCopyWidget.routePath,
+          builder: (context, params) => SenhaRecupCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

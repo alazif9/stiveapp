@@ -25,4 +25,16 @@ class FFAppState extends ChangeNotifier {
   set theadId(String value) {
     _theadId = value;
   }
+
+  String _phoneVerification = '';
+  String get phoneVerification => _phoneVerification;
+  set phoneVerification(String value) {
+    _phoneVerification = value;
+  }
+
+  bool _otpCodeVerify = false;
+  bool get otpCodeVerify => _otpCodeVerify;
+  set otpCodeVerify(bool value) {
+    _otpCodeVerify = value;
+  }
 }

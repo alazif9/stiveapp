@@ -68,18 +68,34 @@ class _PerfilWidgetState extends State<PerfilWidget> {
           title: Text(
             'Área do assinante',
             style: FlutterFlowTheme.of(context).bodyLarge.override(
-                  font: GoogleFonts.ubuntu(
-                    fontWeight: FontWeight.normal,
-                    fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                  ),
-                  color: Color(0xFFEEF0F2),
-                  fontSize: 16.0,
-                  letterSpacing: 0.0,
-                  fontWeight: FontWeight.normal,
-                  fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                ),
+              font: GoogleFonts.ubuntu(
+                fontWeight: FontWeight.normal,
+                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+              ),
+              color: Color(0xFFF4F4E8),
+              fontSize: 30.0,
+              letterSpacing: 0.0,
+              fontWeight: FontWeight.normal,
+              fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+              shadows: [
+                Shadow(
+                  color: Color(0xFF020202),
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            background: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/meajuda.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -152,7 +168,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Hope! ',
+                                'Hope ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -177,29 +193,28 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ],
                           ),
                         ),
-                        if (currentUserDisplayName == currentUserDisplayName)
-                          AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              valueOrDefault(currentUserDocument?.nome, ''),
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    font: GoogleFonts.outfit(
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Color(0xFF14181B),
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
+                        AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            '${currentUserDisplayName} !',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .fontStyle,
                                   ),
-                            ),
+                                  color: Color(0xFF14181B),
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
                           ),
+                        ),
                       ],
                     ),
                   ),

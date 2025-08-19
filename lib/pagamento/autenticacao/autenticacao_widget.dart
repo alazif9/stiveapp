@@ -67,6 +67,9 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
     _model.passwordConfirmTextController ??= TextEditingController();
     _model.passwordConfirmFocusNode ??= FocusNode();
 
+    _model.codIndicacaoTextController ??= TextEditingController();
+    _model.codIndicacaoFocusNode ??= FocusNode();
+
     animationsMap.addAll({
       'columnOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -154,7 +157,7 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: Image.asset(
-                      'assets/images/meajudafundo.png',
+                      'assets/images/logo2.png',
                     ).image,
                   ),
                 ),
@@ -230,22 +233,29 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmall
-                                                      .fontStyle,
-                                            ),
-                                            color: Color(0xFF101213),
-                                            fontSize: 36.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmall
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .displaySmall
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF101213),
+                                        fontSize: 36.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .displaySmall
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                       unselectedLabelStyle: FlutterFlowTheme.of(
                                               context)
                                           .displaySmall
@@ -673,6 +683,11 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
                                                         }
 
                                                         if (loggedIn) {
+                                                          FFAppState()
+                                                                  .phoneVerification =
+                                                              currentPhoneNumber;
+                                                          safeSetState(() {});
+
                                                           context.pushNamedAuth(
                                                               HomepageWidget
                                                                   .routeName,
@@ -2299,6 +2314,162 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
                                                               ),
                                                             ),
                                                           ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0,
+                                                                        10.0),
+                                                            child:
+                                                                AuthUserStreamWidget(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                child:
+                                                                    TextFormField(
+                                                                  key: ValueKey(
+                                                                      valueOrDefault(
+                                                                          currentUserDocument
+                                                                              ?.nome,
+                                                                          '')),
+                                                                  controller: _model
+                                                                      .codIndicacaoTextController,
+                                                                  focusNode: _model
+                                                                      .codIndicacaoFocusNode,
+                                                                  autofocus:
+                                                                      true,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    labelStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.plusJakartaSans(
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              Color(0xFF57636C),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                    hintText:
+                                                                        'Código de Indicação',
+                                                                    enabledBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFFE0E3E7),
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    focusedBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFF4B39EF),
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFFFF5963),
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFFFF5963),
+                                                                        width:
+                                                                            2.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    filled:
+                                                                        true,
+                                                                    fillColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    contentPadding:
+                                                                        EdgeInsets.all(
+                                                                            10.0),
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .ubuntu(
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        color: Color(
+                                                                            0xFF101213),
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                  keyboardType:
+                                                                      TextInputType
+                                                                          .name,
+                                                                  cursorColor:
+                                                                      Color(
+                                                                          0xFF4B39EF),
+                                                                  validator: _model
+                                                                      .codIndicacaoTextControllerValidator
+                                                                      .asValidator(
+                                                                          context),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
@@ -2352,6 +2523,30 @@ class _AutenticacaoWidgetState extends State<AutenticacaoWidget>
                                                                       null) {
                                                                     return;
                                                                   }
+
+                                                                  await UsersRecord
+                                                                      .collection
+                                                                      .doc(user
+                                                                          .uid)
+                                                                      .update(
+                                                                          createUsersRecordData(
+                                                                        email: _model
+                                                                            .emailAddressCreateTextController
+                                                                            .text,
+                                                                        nome: _model
+                                                                            .nomeCreateTextController
+                                                                            .text,
+                                                                        phoneNumber: _model
+                                                                            .telefoneTextController
+                                                                            .text,
+                                                                        posto: _model
+                                                                            .postoValue,
+                                                                        policia:
+                                                                            _model.policiaValue,
+                                                                        codIndicacao: _model
+                                                                            .codIndicacaoTextController
+                                                                            .text,
+                                                                      ));
 
                                                                   context.goNamedAuth(
                                                                       HomepageWidget

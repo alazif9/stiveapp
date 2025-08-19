@@ -35,16 +35,64 @@ class ChatbotstiveaiModel extends FlutterFlowModel<ChatbotstiveaiWidget> {
 
   bool isTyping = false;
 
+  dynamic role;
+
+  bool isRecording = false;
+
+  String? audioSrcString = 'teste';
+
+  bool isLoading = false;
+
+  FFUploadedFile? imgFile;
+
+  String? threadId;
+
+  String? runId;
+
+  String? section;
+
+  bool isComplete = false;
+
+  String? assistentId;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for writingIndicator component.
   late WritingIndicatorModel writingIndicatorModel;
+  bool isDataUploading_uploadData7ko = false;
+  FFUploadedFile uploadedLocalFile_uploadData7ko =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Backend Call - API (transcricaoimagem)] action in IconButton widget.
+  ApiCallResponse? apiResultza3;
+  // Stores action output result for [Custom Action - stopAudioRecording] action in IconButton widget.
+  String? audioSrc;
+  // Stores action output result for [Custom Action - fileFromPath] action in IconButton widget.
+  FFUploadedFile? file;
+  // Stores action output result for [Backend Call - API (transcricaoaudio)] action in IconButton widget.
+  ApiCallResponse? apiResult9m6;
+  // Stores action output result for [Custom Action - startAudioRecording] action in IconButton widget.
+  String? srcPath;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (testeAPI)] action in IconButton widget.
-  ApiCallResponse? apiResult667;
+  // Stores action output result for [Backend Call - API (Postar Mensagem)] action in IconButton widget.
+  ApiCallResponse? returnApiPostarMsg;
+  // Stores action output result for [Backend Call - API (AtribuirAssistente)] action in IconButton widget.
+  ApiCallResponse? returnAssistent;
+  // Stores action output result for [Backend Call - API (Consultar andamento da Thread)] action in IconButton widget.
+  ApiCallResponse? apiResultxi8;
+  // Stores action output result for [Backend Call - API (Consultar Mensagens)] action in IconButton widget.
+  ApiCallResponse? apiResultmsg;
+  // Stores action output result for [Backend Call - API (Postar Mensagem)] action in IconButton widget.
+  ApiCallResponse? postarMsg2;
+  // Stores action output result for [Backend Call - API (AtribuirAssistente)] action in IconButton widget.
+  ApiCallResponse? returnAssistent2;
+  // Stores action output result for [Backend Call - API (Consultar andamento da Thread)] action in IconButton widget.
+  ApiCallResponse? apiResultxi82;
+  // Stores action output result for [Backend Call - API (Consultar Mensagens)] action in IconButton widget.
+  ApiCallResponse? apiResultmsg2;
 
   @override
   void initState(BuildContext context) {

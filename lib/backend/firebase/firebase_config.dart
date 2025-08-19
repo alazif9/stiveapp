@@ -10,7 +10,8 @@ Future initFirebase() async {
             projectId: "meajudastive-u5634n",
             storageBucket: "meajudastive-u5634n.firebasestorage.app",
             messagingSenderId: "431645170436",
-            appId: "1:431645170436:web:6237c893c1e4abcfbd4e51"));
+            appId: "1:431645170436:web:6237c893c1e4abcfbd4e51",
+            measurementId: "G-4TNV4YVPDN"));
   } else {
     await Firebase.initializeApp();
   }

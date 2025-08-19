@@ -93,23 +93,38 @@ class _EditarinfoWidgetState extends State<EditarinfoWidget> {
               child: Text(
                 'Informações pessoais',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.ubuntu(
-                        fontWeight: FontWeight.w500,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontStyle,
-                      ),
-                      color: FlutterFlowTheme.of(context).alternate,
-                      fontSize: 24.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w500,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                    ),
+                  font: GoogleFonts.ubuntu(
+                    fontWeight: FontWeight.bold,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  fontSize: 24.0,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.bold,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  shadows: [
+                    Shadow(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      offset: Offset(2.0, 2.0),
+                      blurRadius: 2.0,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
           actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            background: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/meajuda.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -148,23 +163,30 @@ class _EditarinfoWidgetState extends State<EditarinfoWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
+                                                .primaryText,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -966,27 +988,34 @@ class _EditarinfoWidgetState extends State<EditarinfoWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
-                                      'Aviso do Stive: selecione sua Polícia! A IA trabalha mais eficiênte de acordo com os regulamentos de cada estado.',
+                                      'Aviso do Stive: selecione sua Polícia! A IA trabalha mais eficiente de acordo com os regulamentos de cada estado.',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: Color(0xFFF3F5F7),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFFF3F5F7),
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ]

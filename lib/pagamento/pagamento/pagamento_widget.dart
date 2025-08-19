@@ -68,18 +68,34 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
           title: Text(
             'Área de pagamento',
             style: FlutterFlowTheme.of(context).bodyLarge.override(
-                  font: GoogleFonts.ubuntu(
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                  ),
-                  color: Color(0xFFEEF0F2),
-                  fontSize: 25.0,
-                  letterSpacing: 0.0,
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                ),
+              font: GoogleFonts.ubuntu(
+                fontWeight: FontWeight.w600,
+                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+              ),
+              color: Color(0xFFEEF0F2),
+              fontSize: 25.0,
+              letterSpacing: 0.0,
+              fontWeight: FontWeight.w600,
+              fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+              shadows: [
+                Shadow(
+                  color: Colors.black,
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 2.0,
+                )
+              ],
+            ),
           ),
           actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            background: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/meajuda.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -111,21 +127,27 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.ubuntu(
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
+                                font: GoogleFonts.ubuntu(
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).alternate,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black,
+                                    offset: Offset(2.0, 2.0),
+                                    blurRadius: 2.0,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           Padding(
@@ -140,21 +162,27 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.ubuntu(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      color:
-                                          FlutterFlowTheme.of(context).warning,
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
+                                  font: GoogleFonts.ubuntu(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFF72F958),
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black,
+                                      offset: Offset(2.0, 2.0),
+                                      blurRadius: 2.0,
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -167,19 +195,25 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                     child: Text(
                       'Selecione um dos planos para ver os benefícios!',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.ubuntu(
-                              fontWeight: FontWeight.w500,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).alternate,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
+                        font: GoogleFonts.ubuntu(
+                          fontWeight: FontWeight.bold,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).alternate,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.bold,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black,
+                            offset: Offset(2.0, 2.0),
+                            blurRadius: 2.0,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Align(
@@ -192,13 +226,24 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                       onTap: () async {
                         context.pushNamed(PlanorecrutaWidget.routeName);
                       },
-                      child: Container(
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.easeIn,
                         width: double.infinity,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/guerradopapel2.png',
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(14.0),
+                          border: Border.all(
+                            color: Color(0xFF030000),
+                          ),
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
@@ -219,56 +264,35 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Text(
-                                      'GRÁTIS',
+                                      'PLANO GRÁTIS ',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 25.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Text(
-                                      'Plano Recruta',
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFFE20000),
+                                        fontSize: 25.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 1.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -295,7 +319,17 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            alignment: AlignmentDirectional(0.0, -0.4),
+                            image: Image.asset(
+                              'assets/images/dinheiro.png',
+                            ).image,
+                          ),
                           borderRadius: BorderRadius.circular(12.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
@@ -316,30 +350,35 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'QUERO GANHAR DINHEIRO 🤑',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 22.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF2BE80C),
+                                        fontSize: 22.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: Color(0xFF040404),
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Align(
@@ -350,22 +389,27 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF00E300),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 1.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -392,7 +436,17 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            alignment: AlignmentDirectional(0.0, 0.6),
+                            image: Image.asset(
+                              'assets/images/logo2.png',
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
@@ -413,56 +467,67 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
-                                      'R\$ 39,90/mês',
+                                      'R\$ 49,90/mês',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 25.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF61FF00),
+                                        fontSize: 25.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Plano Antigão',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.ubuntu(
-                                              fontWeight: FontWeight.w500,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                        font: GoogleFonts.ubuntu(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Color(0xFF4BFF00),
+                                        fontSize: 19.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 2.0,
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],

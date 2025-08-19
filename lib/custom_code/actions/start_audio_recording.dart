@@ -11,25 +11,36 @@ import 'package:flutter/material.dart';
 
 import 'package:record/record.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
+import 'package:stiveapp/custom_code/audio_globals.dart';
 
 Future<String> startAudioRecording() async {
-  final record = AudioRecorder();
+  final micStatus = await Permission.microphone.request();
+  if (micStatus != PermissionStatus.granted) {
+    return 'Permissão de microfone negada';
+  }
+
+  globalRecorder ??= AudioRecorder();
 
   // Solicita permissão do microfone
-  if (await record.hasPermission()) {
+  if (await globalRecorder!.hasPermission()) {
     final dir = await getApplicationDocumentsDirectory();
     final path =
         '${dir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
 
-    await record.start(
-      const RecordConfig(encoder: AudioEncoder.aacLc, bitRate: 128000),
+    await globalRecorder!.start(
+      const RecordConfig(
+        encoder: AudioEncoder.aacLc,
+        numChannels: 1,
+      ),
       path: path,
     );
 
     return path;
   } else {
-    throw Exception("Permissão de microfone negada");
+    return "Permissão de microfone negada";
+    //throw Exception("Permissão de microfone negada");
   }
 }
 

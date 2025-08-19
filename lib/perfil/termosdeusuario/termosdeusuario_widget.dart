@@ -145,21 +145,16 @@ class _TermosdeusuarioWidgetState extends State<TermosdeusuarioWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontWeight,
+                                    font: GoogleFonts.ubuntu(
+                                      fontWeight: FontWeight.bold,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 7.6,
+                                    color: Color(0xFF5FE624),
+                                    fontSize: 10.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
+                                    fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
@@ -177,7 +172,7 @@ class _TermosdeusuarioWidgetState extends State<TermosdeusuarioWidget> {
                                           .fontStyle,
                                     ),
                                     color: Color(0xFFF3F5F7),
-                                    fontSize: 10.0,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -187,7 +182,7 @@ class _TermosdeusuarioWidgetState extends State<TermosdeusuarioWidget> {
                                         .fontStyle,
                                   ),
                         ),
-                        textAlign: TextAlign.justify,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),

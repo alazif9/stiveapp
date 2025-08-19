@@ -56,6 +56,10 @@ class AutenticacaoModel extends FlutterFlowModel<AutenticacaoWidget> {
   late bool passwordConfirmVisibility;
   String? Function(BuildContext, String?)?
       passwordConfirmTextControllerValidator;
+  // State field(s) for cod_indicacao widget.
+  FocusNode? codIndicacaoFocusNode;
+  TextEditingController? codIndicacaoTextController;
+  String? Function(BuildContext, String?)? codIndicacaoTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -87,5 +91,8 @@ class AutenticacaoModel extends FlutterFlowModel<AutenticacaoWidget> {
 
     passwordConfirmFocusNode?.dispose();
     passwordConfirmTextController?.dispose();
+
+    codIndicacaoFocusNode?.dispose();
+    codIndicacaoTextController?.dispose();
   }
 }

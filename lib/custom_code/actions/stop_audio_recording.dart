@@ -10,13 +10,14 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:record/record.dart';
+import 'package:stiveapp/custom_code/audio_globals.dart';
 
 /// Set your action name, define your arguments and return parameter,
 Future<String?> stopAudioRecording() async {
-  final record = AudioRecorder();
+  globalRecorder ??= AudioRecorder();
 
-  if (await record.isRecording()) {
-    final path = await record.stop();
+  if (await globalRecorder!.isRecording()) {
+    final path = await globalRecorder!.stop();
     return path; // Caminho do arquivo gravado
   }
   return null;

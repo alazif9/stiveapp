@@ -21,3 +21,5 @@ export '/pagamento/indique_amigo/indique_amigo_widget.dart'
     show IndiqueAmigoWidget;
 export '/chat/chat_ai_screen/chat_ai_screen_widget.dart'
     show ChatAiScreenWidget;
+export '/autth/senha_recup_copy/senha_recup_copy_widget.dart'
+    show SenhaRecupCopyWidget;

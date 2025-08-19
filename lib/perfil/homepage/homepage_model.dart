@@ -13,19 +13,12 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (Criar Conversa)] action in Container widget.
-  ApiCallResponse? apiResult1mn;
+  ApiCallResponse? apiResultv4t;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
-  }
+  void dispose() {}
 }

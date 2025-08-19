@@ -31,10 +31,16 @@ class FeedbackRecord extends FirestoreRecord {
   String get textoFeedback => _textoFeedback ?? '';
   bool hasTextoFeedback() => _textoFeedback != null;
 
+  // "data" field.
+  DateTime? _data;
+  DateTime? get data => _data;
+  bool hasData() => _data != null;
+
   void _initializeFields() {
     _uid = snapshotData['uid'] as String?;
     _nome = snapshotData['nome'] as String?;
     _textoFeedback = snapshotData['texto_feedback'] as String?;
+    _data = snapshotData['data'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -75,12 +81,14 @@ Map<String, dynamic> createFeedbackRecordData({
   String? uid,
   String? nome,
   String? textoFeedback,
+  DateTime? data,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'uid': uid,
       'nome': nome,
       'texto_feedback': textoFeedback,
+      'data': data,
     }.withoutNulls,
   );
 
@@ -94,12 +102,13 @@ class FeedbackRecordDocumentEquality implements Equality<FeedbackRecord> {
   bool equals(FeedbackRecord? e1, FeedbackRecord? e2) {
     return e1?.uid == e2?.uid &&
         e1?.nome == e2?.nome &&
-        e1?.textoFeedback == e2?.textoFeedback;
+        e1?.textoFeedback == e2?.textoFeedback &&
+        e1?.data == e2?.data;
   }
 
   @override
   int hash(FeedbackRecord? e) =>
-      const ListEquality().hash([e?.uid, e?.nome, e?.textoFeedback]);
+      const ListEquality().hash([e?.uid, e?.nome, e?.textoFeedback, e?.data]);
 
   @override
   bool isValidKey(Object? o) => o is FeedbackRecord;

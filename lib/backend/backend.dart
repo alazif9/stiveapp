@@ -9,6 +9,8 @@ import 'schema/users_record.dart';
 import 'schema/feedback_record.dart';
 import 'schema/assistentes_record.dart';
 import 'schema/historico_record.dart';
+import 'schema/pagamentos_record.dart';
+import 'schema/chat_historic_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -21,6 +23,8 @@ export 'schema/users_record.dart';
 export 'schema/feedback_record.dart';
 export 'schema/assistentes_record.dart';
 export 'schema/historico_record.dart';
+export 'schema/pagamentos_record.dart';
+export 'schema/chat_historic_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -168,6 +172,86 @@ Future<List<HistoricoRecord>> queryHistoricoRecordOnce({
     queryCollectionOnce(
       HistoricoRecord.collection(parent),
       HistoricoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query PagamentosRecords (as a Stream and as a Future).
+Future<int> queryPagamentosRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PagamentosRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PagamentosRecord>> queryPagamentosRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PagamentosRecord.collection(parent),
+      PagamentosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PagamentosRecord>> queryPagamentosRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PagamentosRecord.collection(parent),
+      PagamentosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ChatHistoricRecords (as a Stream and as a Future).
+Future<int> queryChatHistoricRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ChatHistoricRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ChatHistoricRecord>> queryChatHistoricRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ChatHistoricRecord.collection(parent),
+      ChatHistoricRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ChatHistoricRecord>> queryChatHistoricRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ChatHistoricRecord.collection(parent),
+      ChatHistoricRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
